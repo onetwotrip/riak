@@ -104,9 +104,8 @@ default['riak']['config']['riak_kv']['js_thread_stack'] = 16
 default['riak']['config']['riak_kv']['http_url_encoding'] = "on"
 default['riak']['config']['riak_kv']['vnode_vclocks'] = true
 default['riak']['config']['riak_kv']['listkeys_backpressure'] = true
-default['riak']['config']['riak_kv']['fsm_limit'] = 50000
+default['riak']['config']['riak_kv']['vnode_mailbox_limit'] = [1, 5000].to_erl_tuple
 #default['riak']['config']['riak_kv']['secondary_index_sort_default'] = true
-default['riak']['config']['riak_kv']['object_format'] = "v1"
 
 # riak_kv storage_backend
 default['riak']['config']['riak_kv']['storage_backend'] = "riak_kv_bitcask_backend"
@@ -155,7 +154,6 @@ default['riak']['config']['lager']['crash_log_size'] = 10485760
 default['riak']['config']['lager']['crash_log_date'] = "$D0".to_erl_string
 default['riak']['config']['lager']['crash_log_count'] = 5
 default['riak']['config']['lager']['error_logger_redirect'] = true
-default['riak']['config']['lager']['error_logger_hwm'] = 100
 
 # riak_sysmon
 default['riak']['config']['riak_sysmon']['process_limit'] = 30
